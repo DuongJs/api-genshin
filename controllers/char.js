@@ -1,0 +1,8 @@
+const { errorHandler } = require("../utils");
+
+exports.getLink1 = async (req, res, next) => {
+  var data = require('fs-extra').readFileSync(__dirname + '/../data.txt', 'utf-8').split('\n');
+  link = data[Math.floor(Math.random() * data.length)].trim();
+  data.author = "LynCute2004"
+  res.json({"url": `${link}`});
+};
